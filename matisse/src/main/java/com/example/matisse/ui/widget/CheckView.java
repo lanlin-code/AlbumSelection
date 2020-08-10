@@ -20,7 +20,6 @@ import com.example.matisse.R;
 import androidx.core.content.res.ResourcesCompat;
 
 public class CheckView extends View {
-
     public static final int UNCHECKED = Integer.MIN_VALUE;
     private static final float STROKE_WIDTH = 3.0f; // dp
     private static final float SHADOW_WIDTH = 6.0f; // dp
@@ -210,5 +209,4 @@ public class CheckView extends View {
     public boolean getChecked() {
         return mChecked;
     }
-
 }

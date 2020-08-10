@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.matisse">
 
-    <application>
-        <activity android:name=".ui.SelectedPreviewActivity"></activity>
+    <application
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.SelectedPreviewActivity" />
         <activity android:name=".ui.MatisseActivity" />
         <activity android:name=".ui.AlbumPreviewActivity" />
     </application>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">albumSelection</string>
+    <string name="app_title">选择的图片</string>
 </resources>

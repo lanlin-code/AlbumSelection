@@ -21,7 +21,6 @@ public class ImageViewAction extends Action<ImageView> {
         }
         ImageView target = super.getTarget();
         if (target == null) return;
-        Log.d("TAG", "complete: all right");
         target.setImageBitmap(result);
 
     }

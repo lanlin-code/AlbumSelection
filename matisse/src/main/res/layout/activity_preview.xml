@@ -68,12 +68,13 @@
             android:text="@string/select"
             android:layout_alignParentEnd="true"/>
 
-        <matisse.ui.widget.CheckView
+        <com.example.matisse.ui.widget.CheckView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/preview_check"
             android:layout_centerVertical="true"
             android:layout_toStartOf="@id/preview_select"/>
+
 
 
     </RelativeLayout>
