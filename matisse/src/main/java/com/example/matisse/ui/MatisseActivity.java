@@ -114,9 +114,9 @@ public class MatisseActivity extends AppCompatActivity implements View.OnClickLi
             if (popupWindow.isShowing()) popupWindow.dismiss();
             else popupWindow.show();
         } else if (id == R.id.go_preview_item) {
-//            Intent intent = new Intent(this, SelectedPreviewActivity.class);
-//            intent.putExtra(SelectedPreviewActivity.KEY, selectedCollection.getItems());
-//            startActivityForResult(intent, PREVIEW);
+            Intent intent = new Intent(this, SelectedPreviewActivity.class);
+            intent.putExtra(SelectedPreviewActivity.KEY, selectedCollection.getItems());
+            startActivityForResult(intent, PREVIEW);
         } else if (id == R.id.send) {
             Intent data = new Intent();
             Bundle bundle = selectedCollection.getItems();
