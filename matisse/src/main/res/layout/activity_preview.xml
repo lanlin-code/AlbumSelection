@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/bar_color">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
+            android:id="@+id/back"
+            android:background="@color/bar_color"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/percent_text"
+            android:gravity="center_vertical"
+            android:layout_toEndOf="@id/back"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:text="@string/send_img"
+            android:textColor="@color/white"
+            android:background="@color/selected_color"
+            android:id="@+id/selected_preview_send"/>
+
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/black"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:background="@color/black"
+        android:id="@+id/show_selected_image"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/black">
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/preview_select"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="@string/select"
+            android:layout_alignParentEnd="true"/>
+
+        <matisse.ui.widget.CheckView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/preview_check"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/preview_select"/>
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
