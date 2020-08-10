@@ -225,12 +225,12 @@ public class MatisseActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void itemClick(Album album, Item item) {
-//        Intent intent = new Intent(this, AlbumPreviewActivity.class);
-//        Bundle bundle = selectedCollection.getItems();
-//        bundle.putParcelable(AlbumPreviewActivity.ALBUM_DATA, album);
-//        bundle.putParcelable(AlbumPreviewActivity.ITEM_DATA, item);
-//        intent.putExtra(AlbumPreviewActivity.BUNDLE_DATA, bundle);
-//        startActivityForResult(intent, PREVIEW);
+        Intent intent = new Intent(this, AlbumPreviewActivity.class);
+        Bundle bundle = selectedCollection.getItems();
+        bundle.putParcelable(AlbumPreviewActivity.ALBUM_DATA, album);
+        bundle.putParcelable(AlbumPreviewActivity.ITEM_DATA, item);
+        intent.putExtra(AlbumPreviewActivity.BUNDLE_DATA, bundle);
+        startActivityForResult(intent, PREVIEW);
     }
 }
 
