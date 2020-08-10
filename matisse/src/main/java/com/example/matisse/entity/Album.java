@@ -9,7 +9,7 @@ import com.example.matisse.loader.AlbumLoader;
 
 import androidx.annotation.NonNull;
 
-public class Album implements Parcelable{
+public class Album implements Parcelable {
     private final String mId;
     private final Uri mCoverUri;
     private final String mDisplayName;
