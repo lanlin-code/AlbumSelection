@@ -1,0 +1,4 @@
+rootProject.name='albumSelection'
+include ':app'
+include ':picasso'
+include ':matisse'
