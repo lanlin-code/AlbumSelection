@@ -1,1 +1,10 @@
-<resources></resources>
+<resources>
+    <string name="app_name">testAlbum</string>
+    <string name="send_img">发送</string>
+    <string name="image">图片</string>
+    <string name="left">(</string>
+    <string name="right">)</string>
+    <string name="fen">/</string>
+    <string name="preview">预览</string>
+    <string name="select">选择</string>
+</resources>
