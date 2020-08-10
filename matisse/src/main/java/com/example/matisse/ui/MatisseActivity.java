@@ -86,20 +86,20 @@ public class MatisseActivity extends AppCompatActivity implements View.OnClickLi
                 setResult(RESULT_OK, data);
                 finish();
             } else {
-//                if (data != null) {
-//                    Bundle bundle = data.getBundleExtra(RETURN_CODE);
-//                    if (bundle != null) {
-//                        List<Item> list = bundle.getParcelableArrayList(ItemSelectedCollection.DATA_KEY);
-//                        selectedCollection.renew(list);
-//                        Fragment fragment = getSupportFragmentManager().
-//                                findFragmentByTag(AlbumSelectionFragment.class.getSimpleName());
-//                        if (fragment instanceof AlbumSelectionFragment) {
-//                            ((AlbumSelectionFragment) fragment).update();
-//                        }
-//
-//                        updateBar();
-//                   }
-//                }
+                if (data != null) {
+                    Bundle bundle = data.getBundleExtra(RETURN_CODE);
+                    if (bundle != null) {
+                        List<Item> list = bundle.getParcelableArrayList(ItemSelectedCollection.DATA_KEY);
+                        selectedCollection.renew(list);
+                        Fragment fragment = getSupportFragmentManager().
+                                findFragmentByTag(AlbumSelectionFragment.class.getSimpleName());
+                        if (fragment instanceof AlbumSelectionFragment) {
+                            ((AlbumSelectionFragment) fragment).update();
+                        }
+
+                        updateBar();
+                   }
+                }
             }
         }
     }
@@ -190,9 +190,9 @@ public class MatisseActivity extends AppCompatActivity implements View.OnClickLi
     // 显示照片墙
     private void onAlbumSelected(Album album) {
 
-//        getSupportFragmentManager().beginTransaction().
-//                replace(R.id.show_photos_fragment, AlbumSelectionFragment.newInstance(album),
-//                        AlbumSelectionFragment.class.getSimpleName()).commit();
+        getSupportFragmentManager().beginTransaction().
+                replace(R.id.show_photos_fragment, AlbumSelectionFragment.newInstance(album),
+                        AlbumSelectionFragment.class.getSimpleName()).commit();
     }
 
 
