@@ -81,7 +81,7 @@ public class TouchImageView extends androidx.appcompat.widget.AppCompatImageView
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (scaleGestureDetector != null) return scaleGestureDetector.onTouchEvent(event);
-        else return false;
+        else return true;
     }
 
     private float getPreScale() {
