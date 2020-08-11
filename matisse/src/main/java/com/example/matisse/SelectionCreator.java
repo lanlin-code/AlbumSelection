@@ -42,6 +42,7 @@ public class SelectionCreator {
         return this;
     }
 
+
     public void forResult(int requestCode) {
         Activity activity = matisse.getActivity();
         Fragment fragment = matisse.getFragment();

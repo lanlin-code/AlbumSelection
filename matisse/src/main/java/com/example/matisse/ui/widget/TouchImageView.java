@@ -6,6 +6,7 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 
@@ -16,6 +17,8 @@ public class TouchImageView extends androidx.appcompat.widget.AppCompatImageView
 
     private ScaleGestureDetector scaleGestureDetector;
     private Matrix mMatrix;
+    private float minScale = 0.5f;
+    private float maxScale = 4.0f;
 
     public TouchImageView(Context context) {
         super(context);
@@ -53,8 +56,6 @@ public class TouchImageView extends androidx.appcompat.widget.AppCompatImageView
         if (getDrawable() == null) return true;
         float scale = detector.getScaleFactor(); // 获取本次缩放值
         float preScale = getPreScale();
-        float minScale = 0.5f;
-        float maxScale = 4.0f;
         if (preScale*scale < maxScale && preScale*scale > minScale) {
             // getFocusX()返回组成缩放手势(两个手指)中点x的位置
             mMatrix.postScale(scale, scale, detector.getFocusX(), detector.getFocusY());
@@ -164,6 +165,8 @@ public class TouchImageView extends androidx.appcompat.widget.AppCompatImageView
         Matrix matrix = new Matrix();
         matrix.postTranslate((width-imgWidth)/2.0f, (height-imgHeight)/2.0f);
         matrix.postScale(scale, scale, getWidth()/2.0f, getHeight()/2.0f);
+        maxScale = 4.0f*scale;
+        minScale = 0.5f*scale;
         setImageMatrix(matrix);
 
     }
