@@ -62,6 +62,10 @@ public class TouchImageView extends androidx.appcompat.widget.AppCompatImageView
             mMatrix.postScale(scale, scale, (float) (getWidth()/2.0), (float) (getHeight()/2.0));
             setImageMatrix(mMatrix);
             makeDrawableCenter();
+        } else {
+            Drawable drawable = getDrawable();
+            mMatrix = getMatrix(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), getWidth(), getHeight());
+            setImageMatrix(mMatrix);
         }
 
         return true;
@@ -169,5 +173,30 @@ public class TouchImageView extends androidx.appcompat.widget.AppCompatImageView
         minScale = 0.5f*scale;
         setImageMatrix(matrix);
 
+    }
+
+
+    private Matrix getMatrix(int imgWidth, int imgHeight, int width, int height) {
+        float scale = 1.0f;
+        if (imgWidth > width) {
+
+            if (imgHeight <= height) {
+
+                scale = (float) (height/(imgHeight*1.0));
+            } else {
+
+                scale = Math.min(width/(imgWidth*1.0f), height/(imgHeight*1.0f));
+            }
+        } else {
+            if (imgHeight > height) {
+                scale = (width/(imgWidth*1.0f));
+            } else {
+                scale = Math.min(width/(imgWidth*1.0f), height/(imgHeight*1.0f));
+            }
+        }
+        Matrix matrix = new Matrix();
+        matrix.postTranslate((width-imgWidth)/2.0f, (height-imgHeight)/2.0f);
+        matrix.postScale(scale, scale, getWidth()/2.0f, getHeight()/2.0f);
+        return matrix;
     }
 }

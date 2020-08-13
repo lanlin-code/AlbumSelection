@@ -21,12 +21,12 @@ import androidx.core.content.res.ResourcesCompat;
 
 public class CheckView extends View {
     public static final int UNCHECKED = Integer.MIN_VALUE;
-    private static final float STROKE_WIDTH = 3.0f; // dp
-    private static final float SHADOW_WIDTH = 6.0f; // dp
-    private static final int SIZE = 48; // dp
-    private static final float STROKE_RADIUS = 11.5f; // dp
-    private static final float BG_RADIUS = 11.0f; // dp
-    private static final int CONTENT_SIZE = 16; // dp
+    private static final float STROKE_WIDTH = 3.0f;
+    private static final float SHADOW_WIDTH = 6.0f;
+    private static final int SIZE = 48;
+    private static final float STROKE_RADIUS = 11.5f;
+    private static final float BG_RADIUS = 11.0f;
+    private static final int CONTENT_SIZE = 16;
     private boolean mCountable;
     private boolean mChecked;
     private int mCheckedNum;
@@ -56,7 +56,7 @@ public class CheckView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        // fixed size 48dp x 48dp
+
         int sizeSpec = MeasureSpec.makeMeasureSpec((int) (SIZE * mDensity), MeasureSpec.EXACTLY);
         super.onMeasure(sizeSpec, sizeSpec);
     }
@@ -115,16 +115,13 @@ public class CheckView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        // draw outer and inner shadow
         initShadowPaint();
         canvas.drawCircle((float) SIZE * mDensity / 2, (float) SIZE * mDensity / 2,
                 (STROKE_RADIUS + STROKE_WIDTH / 2 + SHADOW_WIDTH) * mDensity, mShadowPaint);
 
-        // draw white stroke
         canvas.drawCircle((float) SIZE * mDensity / 2, (float) SIZE * mDensity / 2,
                 STROKE_RADIUS * mDensity, mStrokePaint);
 
-        // draw content
         if (mCountable) {
             if (mCheckedNum != UNCHECKED) {
                 initBackgroundPaint();
@@ -132,8 +129,8 @@ public class CheckView extends View {
                         BG_RADIUS * mDensity, mBackgroundPaint);
                 initTextPaint();
                 String text = String.valueOf(mCheckedNum);
-                int baseX = (int) (canvas.getWidth() - mTextPaint.measureText(text)) / 2;
-                int baseY = (int) (canvas.getHeight() - mTextPaint.descent() - mTextPaint.ascent()) / 2;
+                int baseX = (int) (getWidth() - mTextPaint.measureText(text)) / 2;
+                int baseY = (int) (getHeight() - mTextPaint.descent() - mTextPaint.ascent()) / 2;
                 canvas.drawText(text, baseX, baseY, mTextPaint);
             }
         } else {
@@ -147,16 +144,16 @@ public class CheckView extends View {
             }
         }
 
-        // enable hint
+
         setAlpha(mEnabled ? 1.0f : 0.5f);
     }
 
+    // 阴影
     private void initShadowPaint() {
         if (mShadowPaint == null) {
             mShadowPaint = new Paint();
             // 抗锯齿
             mShadowPaint.setAntiAlias(true);
-            // all in dp
             float outerRadius = STROKE_RADIUS + STROKE_WIDTH / 2;
             float innerRadius = outerRadius - STROKE_WIDTH;
             float gradientRadius = outerRadius + SHADOW_WIDTH;
