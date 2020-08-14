@@ -172,6 +172,7 @@ public class AlbumPreviewActivity extends AppCompatActivity implements View.OnCl
         }
         PreviewAdapter adapter = new PreviewAdapter(viewList, all);
         viewPager.setAdapter(adapter);
+
         Bundle bundle = getIntent().getBundleExtra(BUNDLE_DATA);
         if (bundle != null) {
             Item item = bundle.getParcelable(ITEM_DATA);
